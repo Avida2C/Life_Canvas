@@ -1,0 +1,7 @@
+{
+  "name": "LifeCanvas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
