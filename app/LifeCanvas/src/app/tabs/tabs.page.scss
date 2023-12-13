@@ -1,10 +1,19 @@
   .inher-fab {
-    --color: #fff; /* White text color */
-    --padding-start: 50px;
-    --padding-end: 50px;
-    --border-radius: 2px;
-    margin-bottom: 0px;
-    margin-top: 2px;
+    ion-fab-button
+        {
+            --padding-top: 0px;
+            --padding-bottom: 0px;
+            --padding-start: 65px;
+            --padding-end: 65px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            --border-radius: 2px;
+            
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
   }
 
   .fab-btn-main
