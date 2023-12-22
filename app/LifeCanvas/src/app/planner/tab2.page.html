@@ -23,7 +23,7 @@
 </ion-header>
 <ion-header>
   <ion-toolbar>
-    <ion-segment value="calendar">
+    <ion-segment [(ngModel)]="plannerSegment">
       <ion-segment-button value="notes">
         <ion-label>Notes</ion-label>
       </ion-segment-button>
@@ -37,6 +37,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Content specific to tab 1 -->
+
+<ion-content *ngIf="plannerSegment == 'notes'">
+<ion-label>Notes</ion-label>
 </ion-content>
+
+<ion-content *ngIf="plannerSegment == 'calendar'">
+  <ion-datetime presentation="date"></ion-datetime>
+</ion-content>
+
+<ion-content *ngIf="plannerSegment == 'tasks'">
+<ion-label>Tasks</ion-label>
+</ion-content>
+
+
+
