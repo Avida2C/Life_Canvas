@@ -29,3 +29,20 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+ion-segment {
+    padding-top: 0em;
+    padding-bottom: 0em;
+    width: 100%;
+    border-radius: 0;
+  }
+  
+  ion-segment-button {
+    --border-radius: 0;
+    --padding-top: 0.5em;
+    --padding-bottom: 0.5em;
+    --height: 100%;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+  }
