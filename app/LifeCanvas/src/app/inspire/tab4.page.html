@@ -35,25 +35,26 @@
 </ion-header>
 
 <ion-content *ngIf="inspireSegment == 'affirmations'">
-<ion-grid fixed>
-  <ion-row>
-    <ion-col>
-      <ion-label>Affirmations</ion-label> 
-    </ion-col>
-  </ion-row>
-</ion-grid>
-      
-
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12" class="ion-text-center mb-4">
+          <ion-label><h1>Affirmation</h1></ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>  
   </ion-content>
   
   <ion-content *ngIf="inspireSegment == 'quotes'">
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col>
-          <ion-label>Quotes</ion-label>   
-        </ion-col>
-      </ion-row>
-    </ion-grid>   
-           
+    <ion-card>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center mb-4">
+            <ion-label><h1>Quotes</h1></ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-content>
   
