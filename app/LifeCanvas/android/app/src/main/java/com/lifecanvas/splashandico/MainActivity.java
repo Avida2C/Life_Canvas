@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.lifecanvas.splashandico;
 
 import com.getcapacitor.BridgeActivity;
 

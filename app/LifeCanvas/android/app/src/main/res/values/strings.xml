@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">LifeCanvas</string>
     <string name="title_activity_main">LifeCanvas</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">com.lifecanvas.splashandico</string>
+    <string name="custom_url_scheme">com.lifecanvas.splashandico</string>
 </resources>
