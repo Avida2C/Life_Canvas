@@ -1,7 +1,7 @@
 <!-- Inspire Page-->
 <!-- Menu Content -->
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -22,14 +22,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header>
+<ion-header class="ion-no-border drop-shadow">
   <ion-toolbar>
     <ion-segment [(ngModel)]="inspireSegment">
       <ion-segment-button value="affirmations">
-        <ion-label>Affirmations</ion-label>
+        <ion-label color="primary">Affirmations</ion-label>
       </ion-segment-button>
       <ion-segment-button value="quotes">
-        <ion-label>Quotes</ion-label>
+        <ion-label color="primary">Quotes</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
