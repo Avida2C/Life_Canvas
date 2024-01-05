@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12">
+          <div [innerHTML]="noteContent">
+          </div>
+        </ion-col>
+      </ion-row>
+      <div class="row">
+        <div class="col">
+          <ion-button (click)="editNote(id)" class="mt-6" fill="outline">
+            Edit
+          </ion-button>
+        </div>
+        <div class="col">
+          <ion-button (click)="deleteNote(id)" class="mt-6" fill="outline">
+            Delete
+          </ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

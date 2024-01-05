@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApisService } from '../service/apis.service';
+import { FileService } from '../service/file.service';
 
 @Component({
   selector: 'app-tab4',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
   inspireSegment = 'affirmations';
-  constructor() { }
+  quotes: Promise<any> | undefined;
+  affirmations: Promise<any> | undefined;
+
+  constructor(private apis: ApisService, private fileService: FileService) { }
 
   ngOnInit() {
+     this.quotes = this.apis.getQuotes();
+     this.affirmations = this.apis.GetAffirmations();
   }
 
 }

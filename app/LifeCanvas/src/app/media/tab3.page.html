@@ -12,5 +12,40 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let image of gallery | async">
+        <ion-button (click)="setModalImage(image)" id="open-modal" expand="block">
+          <ion-img [src]="image.imagePath"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="takePhoto()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<ion-modal trigger="open-modal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="close()" [strong]="true">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-img [src]="imageModal.imagePath"></ion-img>
+      </ion-item>
+      <ion-button (click)="deleteImage(imageModal.id)" expand="block">Delete</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+

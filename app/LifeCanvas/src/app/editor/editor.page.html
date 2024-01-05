@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input label="Title:" [(ngModel)]="model.title" required></ion-input>
+  <ckeditor [editor]="editor" [(ngModel)]="model.editorData"></ckeditor>
+  <ion-col size="12" class="grid justify-items-end">
+    <ion-button (click)="saveEditor()" class="mt-6" fill="outline">
+      Save
+    </ion-button>
+  </ion-col>
+</ion-content>

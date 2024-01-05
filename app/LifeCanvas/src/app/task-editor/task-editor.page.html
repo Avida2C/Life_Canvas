@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card size="12" class="ion-text-left mt-3" *ngFor="let t of taskList.tasks">
+    <ion-checkbox class="mx-3"></ion-checkbox>
+    <ion-input placeholder="Enter task" [(ngModel)]="t.content"></ion-input>
+    <ion-button (click)="removeTask(t.id)" class="mt-6" fill="outline" [hidden]="hideX">
+      X
+    </ion-button>
+  </ion-card>
+  <ion-button (click)="addTask()" class="mt-6" fill="outline">
+    Add
+  </ion-button>
+  <ion-button (click)="saveTask()" class="mt-6" fill="outline">
+    Save
+  </ion-button>
+</ion-content>
