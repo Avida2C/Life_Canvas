@@ -25,6 +25,7 @@ export class Tab2Page implements OnInit {
       this.notes = this.fileService.readNotes();
       this.fileService.readTasks().then((value) => {
         this.tasks = value;
+        console.log(value);
       });
     });
   }
@@ -39,7 +40,7 @@ export class Tab2Page implements OnInit {
 
   deleteTask(id: string) {
     this.fileService.deleteTask(id).then(() => {
-      this.tasks = this.fileService.readTasks();
+      this.fileService.readTasks().then(value => this.tasks = value);
     });
   }
 

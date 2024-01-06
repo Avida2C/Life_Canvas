@@ -74,4 +74,8 @@ export class TabsPage implements OnInit {
     this.router.navigateByUrl('/task-editor');
   }
 
+  openFavorites(){
+    this.router.navigate(['favorite']);
+  }
+
 }

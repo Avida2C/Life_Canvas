@@ -12,7 +12,7 @@ export class FileService {
     saveNote = async (data: string, title: string, id: string | null) => {
       let notes = await this.readNotes();
       let content;
-      if(notes){
+      if(notes && notes.length > 0){
         content = notes;
         if(id == null) {
           let maxID = parseInt(_.max(content, function(c){ return c.id; }).id);
@@ -84,7 +84,7 @@ export class FileService {
 
     saveTask = async (taskList: any | null) => {
       let tasks = await this.readTasks();
-      if(tasks) {
+      if(tasks && tasks.length > 0) {
         if(taskList.id == null) {
           let maxID = parseInt(_.max(tasks, function(c){ return c.id; }).id);
           maxID++;
@@ -198,8 +198,7 @@ export class FileService {
         return JSON.parse(contents.data.toString());
       } catch(e) {
         return null;
-      }
-        
+      } 
     };
 
     deleteJournal = async (id: string) => {
@@ -218,5 +217,107 @@ export class FileService {
           console.error(e);
       }
         
+    };
+
+    readQuotes = async () => {
+      try{
+        const contents = await Filesystem.readFile({
+          path: 'quotes.json',
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+        });
+        return JSON.parse(contents.data.toString());
+      } catch(e) {
+        return null;
+      } 
+    };
+
+    saveQuote = async (quote: string, author: string) => {
+      let quotes = await this.readQuotes();
+      if(quotes && quotes.length > 0){
+          quotes.push({
+            quote,
+            author
+          });
+      } else{
+        quotes = [{
+          quote,
+          author
+        }]
+      }
+
+      await Filesystem.writeFile({
+          path: 'quotes.json',
+          data: JSON.stringify(quotes),
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+      });
+    };
+
+    deleteQuotes = async (quote: string) => {
+      var contents = await this.readQuotes();
+      contents = _.reject(contents, function(c) {
+        return c.quote == quote;
+      })
+      try{
+        await Filesystem.writeFile({
+          path: 'quotes.json',
+          data: JSON.stringify(contents),
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+        });
+      } catch(e) {
+          console.error(e);
+      }
+    };
+
+    readAffirmations = async () => {
+      try{
+        const contents = await Filesystem.readFile({
+          path: 'affirmations.json',
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+        });
+        return JSON.parse(contents.data.toString());
+      } catch(e) {
+        return null;
+      } 
+    };
+
+    saveAffirmation = async (affirmation: string) => {
+      let affirmations = await this.readAffirmations();
+      if(affirmations && affirmations.length > 0){
+          affirmations.push({
+            affirmation
+          });
+      } else{
+        affirmations = [{
+          affirmation
+        }]
+      }
+
+      await Filesystem.writeFile({
+          path: 'affirmations.json',
+          data: JSON.stringify(affirmations),
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+      });
+    };
+
+    deleteAffirmation = async (affirmation: string) => {
+      var contents = await this.readAffirmations();
+      contents = _.reject(contents, function(c) {
+        return c.affirmation.quote == affirmation;
+      })
+      try{
+        await Filesystem.writeFile({
+          path: 'affirmations.json',
+          data: JSON.stringify(contents),
+          directory: Directory.External,
+          encoding: Encoding.UTF8,
+        });
+      } catch(e) {
+          console.error(e);
+      }
     };
 }

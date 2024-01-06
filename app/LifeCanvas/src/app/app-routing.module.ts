@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'task-editor',
     loadChildren: () => import('./task-editor/task-editor.module').then( m => m.TaskEditorPageModule)
+  },  {
+    path: 'favorite',
+    loadChildren: () => import('./favorite/favorite.module').then( m => m.FavoritePageModule)
   },
+
 
 
 

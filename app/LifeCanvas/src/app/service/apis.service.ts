@@ -21,8 +21,8 @@ export class ApisService {
     }
 
     async GetAffirmations() {
-        var affirmations: string[] = [];
-        for(var i=0; i < 15; i++) {
+        var affirmations: any[] = [];
+        for(var i=0; i < 10; i++) {
             const result = await fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', {
                 headers: {
                   'X-Api-Key':'LiI1YpaTqdcjYiSHKA3/2g==63myfgziDs7lkH2B'
@@ -30,7 +30,7 @@ export class ApisService {
               }
             );
             const data = await result.json();
-            affirmations.push(data[0].quote);
+            affirmations.push(data[0]);
         }
         return affirmations;
     }
