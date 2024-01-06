@@ -24,6 +24,11 @@ export class EditorPage implements OnInit {
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
+      if(this.model) {
+        this.model.editorData = '';
+        this.model.id = null;
+        this.model.title = '';
+      }
       const type = params.get('type');
       const id = params.get('id');
       console.log(type);

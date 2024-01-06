@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-input label="Title:" [(ngModel)]="model.title" required></ion-input>
+  <ion-card>
+    <ion-card-content>
+      <ion-input color="primary" label="Title:" [(ngModel)]="model.title" required></ion-input>
   <ckeditor class="text-black" [editor]="editor" [(ngModel)]="model.editorData"></ckeditor>
   <ion-col size="12" class="grid justify-items-end">
-    <ion-button (click)="saveEditor()" class="mt-6" fill="outline">
+    <ion-button (click)="saveEditor()" class="mt-6" fill="solid">
       Save
     </ion-button>
   </ion-col>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
