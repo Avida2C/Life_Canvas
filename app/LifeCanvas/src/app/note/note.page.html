@@ -6,28 +6,26 @@
     <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card>
     <ion-card-content>
       <ion-row>
         <ion-col size="12">
-          <div [innerHTML]="noteContent">
-          </div>
+          <ion-list>
+            <ion-item>
+              <ion-label [innerHTML]="noteContent"></ion-label>
+            </ion-item>
+          </ion-list>
         </ion-col>
       </ion-row>
-      <div class="row">
-        <div class="col">
-          <ion-button (click)="editNote(id)" class="mt-6" fill="outline">
-            Edit
-          </ion-button>
-        </div>
-        <div class="col">
-          <ion-button (click)="deleteNote(id)" class="mt-6" fill="outline">
-            Delete
-          </ion-button>
-        </div>
-      </div>
+          <ion-buttons slot="start">
+            <ion-button color="primary" (click)="editNote(id)" class="mt-6" fill="solid">
+              Edit
+            </ion-button>
+            <ion-button color="primary" (click)="deleteNote(id)" class="mt-6" fill="outline">
+              Delete
+            </ion-button>
+          </ion-buttons>
     </ion-card-content>
   </ion-card>
 </ion-content>

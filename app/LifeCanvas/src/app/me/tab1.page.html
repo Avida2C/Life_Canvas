@@ -63,7 +63,8 @@
     <ion-card-content>
       <ion-list size="12" *ngFor="let entry of journal | async">
         <ion-item (click)="openJournal(entry.id)">
-          <ion-label class="text-center">{{entry.title}}</ion-label>
+          <ion-label>{{entry.title}}</ion-label>
+          <ion-label align="end">{{entry.date|date:'shortDate'}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
