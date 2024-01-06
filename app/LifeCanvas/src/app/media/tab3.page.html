@@ -15,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4" *ngFor="let image of gallery | async">
-        <ion-button (click)="setModalImage(image)" id="open-modal" expand="block">
+        <ion-button fill="outline" class="ion-no-padding" (click)="setModalImage(image)" id="open-modal" expand="block">
           <ion-img [src]="image.imagePath"></ion-img>
         </ion-button>
       </ion-col>

@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../inspire/tab4.module').then(m => m.Tab4PageModule)
       },
       {
+        path: 'favorite',
+        loadChildren: () => import('../favorite/favorite.module').then(m => m.FavoritePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

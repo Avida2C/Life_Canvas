@@ -75,7 +75,7 @@ export class TabsPage implements OnInit {
   }
 
   openFavorites(){
-    this.router.navigate(['favorite']);
+    this.router.navigate(['/tabs/favorite']);
   }
 
 }
