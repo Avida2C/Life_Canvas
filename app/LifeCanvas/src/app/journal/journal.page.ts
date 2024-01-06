@@ -13,6 +13,7 @@ export class JournalPage implements OnInit {
   public title: string = 'Journal';
   public noteContent: string;
   public id: string;
+  public date: Date;
   constructor(private route: ActivatedRoute, private router: Router, private fileService: FileService) { }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class JournalPage implements OnInit {
           this.noteContent = entry.data;
           this.title = entry.title;
           this.id = entry.id;
+          this.date = entry.date;
         });
       }
     });

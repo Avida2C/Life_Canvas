@@ -145,6 +145,7 @@ export class FileService {
     saveJournal = async (data: string, title: string, id: string | null) => {
       let journal = await this.readJournal();
       let content;
+      let date = new Date();
       if(journal){
         content = journal;
         if(id == null) {
@@ -153,16 +154,19 @@ export class FileService {
           content.push({
             "id": maxID,
             "data": data,
-            "title": title
+            "title": title,
+            "date": date
           });
         } else {
           content.forEach((note: {
             data: string;
             title: string; id: string; 
+            date: Date;
           }) => {
             if(note.id == id) {
               note.data = data;
               note.title = title;
+              note.date = date;
             }
           });
         }
@@ -170,7 +174,8 @@ export class FileService {
         content = [{
           "id": 0,
           "data": data,
-          "title": title
+          "title": title,
+          "date": date
         }]
       }
 

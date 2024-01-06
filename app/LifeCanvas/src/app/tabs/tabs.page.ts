@@ -64,4 +64,14 @@ export class TabsPage implements OnInit {
     });
   }
 
+  openEditor(type:string)
+  {
+    this.router.navigateByUrl('/editor?type=' + type);
+  }
+
+  openTaskEditor()
+  {
+    this.router.navigateByUrl('/task-editor');
+  }
+
 }

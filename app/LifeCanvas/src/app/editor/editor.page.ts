@@ -26,6 +26,7 @@ export class EditorPage implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       const type = params.get('type');
       const id = params.get('id');
+      console.log(type);
       this.type = type;
       if(!id) {
         this.title = 'New ' + type;
@@ -64,7 +65,7 @@ export class EditorPage implements OnInit {
       }
       case("journal"): {
         await this.fileService.saveJournal(this.model.editorData, this.model.title, this.model.id);
-        this.router.navigateByUrl('/tabs/tab1').then();
+        this.router.navigateByUrl('/tabs/tab1');
         break;
       }
     }
