@@ -1,13 +1,16 @@
 <ion-content>
+  <!-- Form group for handling form controls -->
   <form [formGroup]="formLogin">
   <ion-grid fixed>
     <ion-row class="grid justify-items-center">
       <ion-col size="9">
+        <!-- Display the app icon -->
         <ion-img src="../assets/icon/favicon.png" alt="App Icon"></ion-img>
       </ion-col>
       <ion-col size="10">
         <ion-list>
           <ion-item>
+            <!-- Input field for user's name -->
             <ion-input label="Stacked label" labelPlacement="stacked" label="Your Name" formControlName="name" required></ion-input>
           </ion-item>
         </ion-list>
@@ -16,6 +19,7 @@
         <ion-label>By clicking on the 'Proceed' button you are agreeing to our terms and conditions.</ion-label>
       </ion-col>
       <ion-col size="10" class="grid justify-items-end">
+         <!-- Proceed button to go to the next page -->
         <ion-button (click)="nextpage()" class="mt-6" fill="outline">
           Proceed
         </ion-button>
