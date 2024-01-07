@@ -1,8 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Back button to navigate back -->
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <!-- Page name depending whether it is a new or edit of the task -->
     <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,6 +15,7 @@
       <ion-row>
         <ion-col size="2">
           <ion-buttons>
+            <!-- Button to remove a task -->
             <ion-button (click)="removeTask(t.id)" [hidden]="hideX">
               <ion-icon class="mt-2" size="large" color="primary" name="close-circle-outline"></ion-icon>
             </ion-button>
@@ -21,9 +24,11 @@
         <ion-col size="8">
           <ion-row>
             <ion-col size="2">
+              <!-- Checkbox to mark a task as completed -->
               <ion-checkbox class="my-3"></ion-checkbox>
             </ion-col>
             <ion-col size="10">
+              <!-- Input field to edit the task content -->
               <ion-input placeholder="Enter task" [(ngModel)]="t.content"></ion-input>
             </ion-col>
           </ion-row>
@@ -31,12 +36,16 @@
       </ion-row>
     </ion-card-content>
   </ion-card>
+
   <ion-card>
+     <!-- Card for adding and saving tasks -->
     <ion-card-content>
       <ion-buttons>
+        <!-- Button to add a new task -->
         <ion-button color="primary" (click)="addTask()" class="mt-6" fill="outline">
           Add
         </ion-button>
+        <!-- Button to save changes to tasks -->
         <ion-button color="primary" (click)="saveTask()" class="mt-6" fill="solid">
           Save
         </ion-button>
