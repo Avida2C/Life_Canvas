@@ -5,6 +5,16 @@
 
 LifeCanvas is a versatile mobile application designed to enhance users' daily lives by addressing common challenges such as disorganization and lack of motivation. Its key features include task management, organizational tools, and daily inspiration. The app caters to a wide range of users, particularly those who prioritize productivity and enjoy journaling. It offers a seamless way to simplify task management, express thoughts visually, and provide motivation through encouraging quotes and affirmations, ultimately helping users lead a more structured and efficient life.
 
+## Features
+
+    Light/Dark mode toggle
+    Notes
+    Tasks 
+    Journal
+    Media Gallery
+    Daily Quotes/Affirmations
+    Favorite Quotes/Affirmations
+    Calendar
 
 ## Installation
 
@@ -24,7 +34,20 @@ Install project dependencies
 ```bash
   npm install
 ```
-    
+
+## Usage
+
+To get started with LifeCanvas, follow these steps:
+
+    1. Install the app as described in the Installation section.
+    2. Open the app, input your name and click proceed.
+    3. Create daily entries.
+    4. Create your daily tasks.
+    5. Create necessary notes.
+    6. Upload your favorite images.
+    7. Find daily quotes and affirmations.  
+    8. Enjoy!
+
 ## Deployment
 
 To deploy this project through Ionic:
@@ -49,30 +72,13 @@ To run a live preview on the android emulator or device:
 ```
 
 
-## Usage
-
-To get started with LifeCanvas, follow these steps:
-
-    1. Install the app as described in the Installation section.
-    2. Open the app, input your name and click proceed.
-    3. Create daily entries.
-    4. Create your daily tasks.
-    5. Create necessary notes.
-    6. Upload your favorite images.
-    7. Find daily quotes and affirmations.  
-    8. Enjoy!
-
-
-## Features
-
-- Light/Dark mode toggle
-- Notes
-- Tasks 
-- Journal
-- Media Gallery
-- Daily Quotes/Affirmations
-- Favorite Quotes/Affirmations
-- Calendar
+## Native Components
+    @capacitor/camera
+    @capacitor/filesystem
+    @capacitor/keyboard
+    @capacitor/network
+    @capacitor/preferences
+    @capacitor/splash-screen
 
 
 ##  API
