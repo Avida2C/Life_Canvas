@@ -3,6 +3,7 @@
 <ion-header class="ion-no-border drop-shadow">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Menu button to open the side menu -->
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-grid class="ion-no-margin">
@@ -13,12 +14,17 @@
 
 <ion-content>
   <ion-card>
+    <!-- Gallery Card -->
     <ion-card-content>
       <ion-list>
         <ion-item>
           <ion-row>
+            <!-- Displaying a grid of images from the gallery -->
             <ion-col size="4" *ngFor="let image of gallery | async">
-              <ion-button fill="outline" class="ion-no-padding" (click)="setModalImage(image)" id="open-modal" expand="block">
+              <!-- Button to open the image in a modal -->
+              <ion-button fill="outline" class="ion-no-padding" (click)="setModalImage(image)" id="open-modal"
+                expand="block">
+                <!-- Display the image -->
                 <ion-img [src]="image.imagePath"></ion-img>
               </ion-button>
             </ion-col>
@@ -28,6 +34,7 @@
     </ion-card-content>
   </ion-card>
 
+  <!-- Floating Action Button to take a photo -->
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="takePhoto()">
       <ion-icon name="add"></ion-icon>
@@ -35,12 +42,15 @@
   </ion-fab>
 </ion-content>
 
+<!-- Modal for Image Preview -->
 <ion-modal trigger="open-modal">
   <ng-template>
     <ion-header>
       <ion-toolbar>
+        <!-- Title for the image preview modal -->
         <ion-title>Image Preview</ion-title>
         <ion-buttons slot="end">
+          <!-- Close button to close the modal -->
           <ion-button (click)="close()" [strong]="true">
             <ion-icon size="large" name="close"></ion-icon>
           </ion-button>
@@ -48,12 +58,16 @@
       </ion-toolbar>
     </ion-header>
 
+    
     <ion-content>
+      <!-- Card to display the image in the modal -->
       <ion-card>
         <ion-card-content>
           <ion-list>
             <ion-item>
+              <!-- Display the image in the modal -->
               <ion-img [src]="imageModal.imagePath"></ion-img>
+              <!-- Button to delete the image -->
               <ion-label (click)="deleteImage(imageModal.id)" expand="block">Delete</ion-label>
             </ion-item>
           </ion-list>
