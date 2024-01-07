@@ -1,8 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Back button to navigate back -->
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <!-- Title for the page -->
     <ion-title>Editor</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,13 +12,16 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
+      <!-- Input field for the title -->
       <ion-input color="primary" label="Title:" [(ngModel)]="model.title" required></ion-input>
-  <ckeditor class="text-black" [editor]="editor" [(ngModel)]="model.editorData"></ckeditor>
-  <ion-col size="12" class="grid justify-items-end">
-    <ion-button (click)="saveEditor()" class="mt-6" fill="solid">
-      Save
-    </ion-button>
-  </ion-col>
+      <!-- CKEditor component for text editing -->
+      <ckeditor class="text-black" [editor]="editor" [(ngModel)]="model.editorData"></ckeditor>
+      <ion-col size="12" class="grid justify-items-end">
+        <!-- Save button to trigger the saveEditor() function -->
+        <ion-button (click)="saveEditor()" class="mt-6" fill="solid">
+          Save
+        </ion-button>
+      </ion-col>
     </ion-card-content>
   </ion-card>
 </ion-content>

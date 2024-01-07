@@ -30,39 +30,43 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
+/* Styling for ion-segment */
 ion-segment {
-    padding-top: 0em;
-    padding-bottom: 0em;
-    width: 100%;
-    border-radius: 0;
-  }
-  
-  ion-segment-button {
-    --border-radius: 0;
-    --padding-top: 0.5em;
-    --padding-bottom: 0.5em;
-    --height: 100%;
-    font-size: medium;
-    color: rgb(255, 255, 255);
-  }
-
-  ion-card{
-    border-radius: 0px;
-    margin: 0;
-    box-shadow: none;
-    border-bottom: 2px rgb(227, 148, 120) solid;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  width: 100%;
+  border-radius: 0;
 }
 
-ion-label{
+/* Styling for ion-segment-button */
+ion-segment-button {
+  --border-radius: 0;
+  --padding-top: 0.5em;
+  --padding-bottom: 0.5em;
+  --height: 100%;
+  font-size: medium;
+  color: rgb(255, 255, 255);
+}
+
+/* Styling for ion-card */
+ion-card {
+  border-radius: 0px;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: 2px rgb(227, 148, 120) solid;
+}
+
+/* Styling for ion-label */
+ion-label {
   font-size: 16px !important;
 }
 
-
-ion-input{
+/* Styling for ion-input */
+ion-input {
   font-size: 16px !important;
 }
 
+/* Styling for CKEditor's editable area */
 .ck-editor__editable_inline {
   min-height: 500px !important;
 }
