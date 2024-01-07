@@ -1,32 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Back button to navigate back -->
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <!-- Title is displayed depending on the name of the note using the 'title' variable -->
     <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
+  <!-- Card with note content -->
   <ion-card>
     <ion-card-content>
       <ion-row>
         <ion-col size="12">
           <ion-list>
             <ion-item>
+              <!-- Displaying the note content with HTML formatting -->
               <ion-label [innerHTML]="noteContent"></ion-label>
             </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
-          <ion-buttons slot="start">
-            <ion-button color="primary" (click)="editNote(id)" class="mt-6" fill="solid">
-              Edit
-            </ion-button>
-            <ion-button color="primary" (click)="deleteNote(id)" class="mt-6" fill="outline">
-              Delete
-            </ion-button>
-          </ion-buttons>
+      <!-- Buttons for editing and deleting the note -->
+      <ion-buttons slot="start">
+        <!-- Button to edit the note -->
+        <ion-button color="primary" (click)="editNote(id)" class="mt-6" fill="solid">
+          Edit
+        </ion-button>
+        <!-- Button to delete the note -->
+        <ion-button color="primary" (click)="deleteNote(id)" class="mt-6" fill="outline">
+          Delete
+        </ion-button>
+      </ion-buttons>
     </ion-card-content>
   </ion-card>
 </ion-content>
-
