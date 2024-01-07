@@ -3,6 +3,7 @@
 <ion-header class="ion-no-border drop-shadow">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Menu button to open the side menu -->
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-grid class="ion-no-margin">
@@ -12,10 +13,12 @@
 </ion-header>
 
 <ion-content>
+  <!-- Welcome Card -->
   <ion-card>
     <ion-card-content>
       <ion-row>
         <ion-col size="12" class="ion-text-center mb-4">
+          <!-- Welcome message -->
           <h3>Welcome</h3>
           <ion-label class="username-Label">{{name}}</ion-label>
         </ion-col>
@@ -25,6 +28,7 @@
           </ion-thumbnail>
         </ion-col>
         <ion-col size="10">
+          <!-- Affirmation -->
           <ion-label>
             Each day, I improve my life by becoming a better version myself!
           </ion-label>
@@ -42,6 +46,7 @@
           </ion-thumbnail>
         </ion-col>
         <ion-col size="8">
+          <!-- Quote -->
           <ion-label>Life is what happens when you're busy making other plans.
           </ion-label>
         </ion-col>
@@ -51,19 +56,26 @@
           </ion-thumbnail>
         </ion-col>
         <ion-col class="ion-no-padding ion-no-margin ion-text-end">
+          <!-- Author Name -->
           <ion-label>John Lennon</ion-label>
         </ion-col>
       </ion-row>
     </ion-card-content>
   </ion-card>
+
+  <!-- My Journals -->
   <ion-card>
     <ion-card-header>
+      <!-- Title for the journal section -->
       <ion-card-title class="text-center" color="primary">My Journal</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <!-- List of journal entries -->
       <ion-list size="12" *ngFor="let entry of journal | async">
         <ion-item (click)="openJournal(entry.id)">
+          <!-- Journal entry title -->
           <ion-label>{{entry.title}}</ion-label>
+          <!-- Journal entry date -->
           <ion-label align="end">{{entry.date|date:'shortDate'}}</ion-label>
         </ion-item>
       </ion-list>
