@@ -55,7 +55,6 @@ export class Tab1Page implements OnInit {
       /**
        * Sets the value of the "name" property based on the provided name parameter or the value retrieved from the Preferences API.
        * @param {string} name - The name to set the "name" property to.
-       * @returns None
        */
       if(name)
         this.name = name;
@@ -70,7 +69,6 @@ export class Tab1Page implements OnInit {
 
     /**
      * Subscribes to changes in the route parameters and triggers the loadJournal() method.
-     * @returns None
      */
     this.route.params.subscribe(() => {
       this.loadJournal();

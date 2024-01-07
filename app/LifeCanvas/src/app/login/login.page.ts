@@ -44,7 +44,6 @@ export class LoginPage implements OnInit {
     /**
      * Sets the user's name in the preferences and navigates to the '/tabs' route.
      * @param {string} userName - The user's name to be stored in the preferences.
-     * @returns None
      */
     Preferences.set({
       key: 'name',
@@ -64,7 +63,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     Preferences.get({ key: 'name' }).then(({value}) => {
       if(value) {
-        console.log(value);
         this.route.navigate(['/tabs']);
       }
         

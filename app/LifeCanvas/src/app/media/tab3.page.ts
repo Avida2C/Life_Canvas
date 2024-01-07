@@ -63,7 +63,6 @@ export class Tab3Page implements OnInit {
       /**
        * Adds an image to the image service and updates the gallery.
        * @param {string} webPath - The web path of the image to add.
-       * @returns None
        */
       await this.imageService.addImage(image.webPath);
       this.gallery = this.imageService.loadImageJson();

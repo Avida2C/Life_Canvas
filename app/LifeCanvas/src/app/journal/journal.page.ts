@@ -56,7 +56,6 @@ export class JournalPage implements OnInit {
       /**
        * If the given ID is false, navigate to the '/tabs' route using the router.
        * @param {any} id - The ID to check.
-       * @returns None
        */
       if (!id) {
         this.router.navigate(['/tabs']);
@@ -64,7 +63,6 @@ export class JournalPage implements OnInit {
        * Else, read the journal file and retrieve the entry with the specified id.
        * Sets the note content, title, id, and date properties based on the retrieved entry.
        * @param {string} id - The id of the entry to retrieve.
-       * @returns None
        */
       } else {
         this.fileService.readJournal().then(journal => {

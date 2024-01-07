@@ -63,14 +63,12 @@ export class Tab4Page implements OnInit {
        * Iterates over each element in the `value` array and checks if the `quoteText` property of each element exists in the `savedQuotes` array. 
        * If a match is found, the `exists` property of the element is set to `true`.
        * @param {Array} value - The array of elements to iterate over.
-       * @returns None
        */
       _.each(value, function(q) { if(_.some(that.savedQuotes, q.quoteText)) q.exists = true; });
       this.quotes = value;
     });
     /**
      * Retrieves affirmations from the API and updates the component's state with the retrieved data.
-     * @returns None
      */
     this.apis.GetAffirmations().then((value) => {
       let that = this;

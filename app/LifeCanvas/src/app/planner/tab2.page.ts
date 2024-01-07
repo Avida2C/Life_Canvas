@@ -115,7 +115,6 @@ export class Tab2Page implements OnInit {
      * Updates the status of a task with the given ID and saves the updated task to the file service.
      * @param {number} id - The ID of the task to update.
      * @param {Task} task - The task object containing the list of tasks.
-     * @returns None
      */
     _.each(task.tasks, function(t){
       if(t.id == id) {

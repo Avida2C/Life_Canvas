@@ -59,7 +59,6 @@ export class NotePage implements OnInit {
        * variables accordingly.
        * If the ID does not exist, it navigates to the '/tabs' route.
        * @param {string} id - The ID to check
-       * @returns None
        */
       if(!id) {
         this.router.navigate(['/tabs']);
