@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
+      <!-- Back button to navigate back to the previous page -->
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>{{title}}</ion-title>
@@ -11,22 +12,25 @@
   <ion-card>
     <ion-card-content>
       <ion-row>
+        <!-- Display the date using a date format -->
         <ion-col size="12"><ion-label>{{date|date:'short'}}</ion-label></ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="12">
-          <div [innerHTML]="noteContent">
-          </div>
+          <!-- Display content -->
+          <ion-label [innerHTML]="noteContent"></ion-label> 
         </ion-col>
       </ion-row>
       <ion-grid>
         <ion-row>
           <ion-col size="3">
+            <!-- Edit button to edit the journal entry -->
             <ion-button (click)="editJournal(id)" class="mt-6" fill="outline">
               Edit
             </ion-button>
           </ion-col>
           <ion-col size="2">
+            <!-- Delete button to delete the journal entry -->
             <ion-button (click)="deleteJournal(id)" class="mt-6" fill="outline">
               Delete
             </ion-button>
