@@ -1,5 +1,7 @@
 
 # LifeCanvas
+<img src="https://img.shields.io/badge/Node.JS-Green?style=flat" alt="Node.JS" /> <img src="https://img.shields.io/badge/AngularJS-db0000?style=flat" alt="AngularJS" />
+<img src="https://img.shields.io/badge/Ionic%20Framework-009dff?style=flat" alt="Ionic Framework" />
 
 LifeCanvas is a versatile mobile application designed to enhance users' daily lives by addressing common challenges such as disorganization and lack of motivation. Its key features include task management, organizational tools, and daily inspiration. The app caters to a wide range of users, particularly those who prioritize productivity and enjoy journaling. It offers a seamless way to simplify task management, express thoughts visually, and provide motivation through encouraging quotes and affirmations, ultimately helping users lead a more structured and efficient life.
 
