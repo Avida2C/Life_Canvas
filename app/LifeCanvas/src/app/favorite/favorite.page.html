@@ -3,6 +3,7 @@
 <ion-header>
   <ion-toolbar >
     <ion-buttons slot="start">
+      <!-- Menu button to open the side menu -->
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-grid class="ion-no-margin">
@@ -13,11 +14,15 @@
 
 <ion-header class="ion-no-border drop-shadow">
   <ion-toolbar>
+    <!-- Ion Segment for switching between 'affirmations' and 'quotes' -->
     <ion-segment [(ngModel)]="inspireSegment">
       <ion-segment-button value="affirmations">
+        <!-- Label for 'affirmations' segment -->
         <ion-label color="primary">Affirmations</ion-label>
       </ion-segment-button>
+
       <ion-segment-button value="quotes">
+        <!-- Label for 'quotes' segment -->
         <ion-label color="primary">Quotes</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -25,15 +30,16 @@
 </ion-header>
 
 <ion-content *ngIf="inspireSegment == 'affirmations'">
+  <!-- Display affirmations when 'inspireSegment' is 'affirmations' -->
   <ion-card size="12" *ngFor="let affirmation of affirmations">
     <ion-card-content>
       <ion-row>
         <ion-col size="10">
-          <ion-label>
-            {{affirmation.affirmation.quote}}
-          </ion-label>
+          <!-- Display affirmation text -->
+          <ion-label>{{affirmation.affirmation.quote}}</ion-label>
         </ion-col>
         <ion-col align="end" size="2">
+          <!-- Heart icon for deleting an affirmation -->
           <ion-icon (click)="deleteAffirmation(affirmation.affirmation)" size="large" color="primary" name="heart"></ion-icon>
         </ion-col>
         </ion-row>
@@ -42,20 +48,22 @@
   </ion-content>
   
   <ion-content *ngIf="inspireSegment == 'quotes'">
-    <ion-card size="12" *ngFor="let quote of quotes">
-      <ion-card-content>
+    <!-- Display quotes when 'inspireSegment' is 'quotes' -->
+    <ion-card size="12" *ngFor="let quote of quotes">   
+      <ion-card-content> 
         <ion-row>
           <ion-col size="10">
-            <ion-label>
-              {{quote.quote}}
-            </ion-label>
+             <!-- Display quote text -->
+            <ion-label>{{quote.quote}}</ion-label>
           </ion-col>
           <ion-col align="end" size="2">
+            <!-- Heart icon for deleting a quote -->
             <ion-icon (click)="deleteQuote(quote.quote)" size="large" color="primary" name="heart"></ion-icon>
           </ion-col>
           </ion-row>
           <ion-row>
             <ion-col align="end">
+              <!-- Display quote author -->
               <ion-label>{{quote.author}}</ion-label>
             </ion-col>
         </ion-row>
