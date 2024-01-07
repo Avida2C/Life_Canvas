@@ -29,6 +29,14 @@ import * as _ from 'underscore';
 
 export class EditorPage implements OnInit {
 
+  /**
+   * Represents a note object with properties such as title, id, editor, type, and model.
+   * @property {string} title - The title of the note/journal.
+   * @property {string} id - The unique identifier of the note/journal.
+   * @property {Editor} editor - The editor object associated.
+   * @property {string | null} type - The type: journal/note.
+   * @property {object} model - The model object containing editorData, title, and id properties.
+   */
   public title = '';
   public id: string;
   public editor = Editor;
