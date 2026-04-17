@@ -28,7 +28,7 @@ Install Ionic
 ```
 Install Angular
 ```bash
-  npm install -g @ionic/cli
+  npm install -g @angular/cli
 ```
 Install project dependencies
 ```bash
