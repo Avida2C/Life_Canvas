@@ -10,6 +10,7 @@ import { FileService } from '../service/file.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
+  standalone: false,
   selector: 'app-task-editor',
   templateUrl: './task-editor.page.html',
   styleUrls: ['./task-editor.page.scss'],

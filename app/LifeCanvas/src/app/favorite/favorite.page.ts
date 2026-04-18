@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileService } from '../service/file.service';
 
 @Component({
+  standalone: false,
   selector: 'app-favorite',
   templateUrl: './favorite.page.html',
   styleUrls: ['./favorite.page.scss'],

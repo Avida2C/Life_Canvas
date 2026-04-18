@@ -21,6 +21,7 @@ import { FileService } from '../service/file.service';
 import * as _ from 'underscore';
 
 @Component({
+  standalone: false,
   selector: 'app-journal',
   templateUrl: './journal.page.html',
   styleUrls: ['./journal.page.scss'],

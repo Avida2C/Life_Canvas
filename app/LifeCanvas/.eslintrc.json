@@ -1,19 +1,39 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
+  "root": true,
+  "ignorePatterns": ["www/**", "node_modules/**", "ckeditor5/**"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          { "argsIgnorePattern": "^_" }
+        ],
+        "@typescript-eslint/no-this-alias": "off",
+        "prefer-const": "off",
+        "no-var": "off",
+        "no-self-assign": "off"
+      }
     },
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "parser": "@angular-eslint/template-parser",
+      "rules": {
+        "@angular-eslint/template/prefer-control-flow": "off",
+        "@angular-eslint/template/eqeqeq": "off"
+      }
     }
+  ]
 }

@@ -22,6 +22,7 @@ import * as _ from 'underscore';
  * @styleUrls ['./editor.page.scss']
  */
 @Component({
+  standalone: false,
   selector: 'app-editor',
   templateUrl: './editor.page.html',
   styleUrls: ['./editor.page.scss'],

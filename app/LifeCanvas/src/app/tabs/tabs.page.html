@@ -91,10 +91,9 @@
       <ion-label>Planner</ion-label>
     </ion-tab-button>
 
-    <!-- Hidden Tab -->
-    <ion-tab-button>
-      <ion-icon aria-hidden="true" name="blank"></ion-icon>
-      <ion-label></ion-label>
+    <!-- Spacer for center FAB (ionicons has no "blank"; avoid 404 on svg/blank.svg) -->
+    <ion-tab-button class="tab-fab-spacer" disabled="true" layout="label-only">
+      <ion-label class="ion-hide"> </ion-label>
     </ion-tab-button>
 
     <!-- Media Tab -->

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  /** Optional: https://api-ninjas.com — if empty, affirmations use a free fallback API */
+  apiNinjasKey: ''
 };
 
 /*

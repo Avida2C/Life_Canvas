@@ -22,6 +22,7 @@ import { FileService } from '../service/file.service';
 import * as _ from 'underscore';
 
 @Component({
+  standalone: false,
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
@@ -57,24 +58,35 @@ export class Tab4Page implements OnInit {
   async ngOnInit() {
     this.savedAffirmations = await this.fileService.readAffirmations();
     this.savedQuotes = await this.fileService.readQuotes();
-    this.apis.getQuotes().then((value) => { 
-      let that = this;
-      /**
-       * Iterates over each element in the `value` array and checks if the `quoteText` property of each element exists in the `savedQuotes` array. 
-       * If a match is found, the `exists` property of the element is set to `true`.
-       * @param {Array} value - The array of elements to iterate over.
-       */
-      _.each(value, function(q) { if(_.some(that.savedQuotes, q.quoteText)) q.exists = true; });
-      this.quotes = value;
+    this.apis.getQuotes().then((value) => {
+      const list = Array.isArray(value) ? value.filter((q) => q?.quoteText) : [];
+      const saved = this.savedQuotes ?? [];
+      _.each(list, (q) => {
+        const exists = _.some(saved, (s: { quote?: string }) => s.quote === q.quoteText);
+        if (exists) {
+          q.exists = true;
+        }
+      });
+      this.quotes = list;
     });
     /**
      * Retrieves affirmations from the API and updates the component's state with the retrieved data.
      */
     this.apis.GetAffirmations().then((value) => {
-      let that = this;
-      _.each(value, function(q) { if(_.some(that.savedAffirmations, q.quote)) q.exists = true; });
-      this.affirmations = value;
+      const list = Array.isArray(value) ? value.filter((q) => q?.quote) : [];
+      const saved = this.savedAffirmations ?? [];
+      _.each(list, (q) => {
+        const exists = _.some(saved, (s: { affirmation?: string | { quote?: string } }) => {
+          const a = s?.affirmation;
+          const text = typeof a === 'string' ? a : a?.quote;
+          return text === q.quote;
+        });
+        if (exists) {
+          q.exists = true;
+        }
       });
+      this.affirmations = list;
+    });
   }
 
   /**

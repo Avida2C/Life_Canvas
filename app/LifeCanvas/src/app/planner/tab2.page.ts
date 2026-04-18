@@ -21,6 +21,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'underscore';
 
 @Component({
+  standalone: false,
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']

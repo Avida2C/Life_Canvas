@@ -21,6 +21,13 @@
     }
   }
 
+  /* Middle tab: reserve space for FAB without loading a missing icon */
+  .tab-fab-spacer {
+    --color: transparent;
+    pointer-events: none;
+    max-width: 56px;
+  }
+
   .fab-btn-main
   {
     --border-radius: 20px;

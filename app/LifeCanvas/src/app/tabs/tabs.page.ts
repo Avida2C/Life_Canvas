@@ -6,16 +6,17 @@
  * @param {Router} Router - The Angular router module.
  * @param {Preferences} Preferences - The Capacitor preferences module.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 
 @Component({
+  standalone: false,
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage implements OnInit {
+export class TabsPage implements OnInit, OnDestroy {
 
   /**
    * Represents the state of the theme toggle and the name property.
@@ -25,35 +26,36 @@ export class TabsPage implements OnInit {
   themeToggle = false;
   name: any;
 
+  private prefersDarkMq?: MediaQueryList;
+  private readonly onSystemThemeChange = (e: MediaQueryListEvent) =>
+    this.applyTheme(e.matches, { followSystem: true });
+
   /**
    * Constructs a new instance of the class.
    * @param {Router} router - The router object used for navigation.
    */
   constructor(private router: Router) {}
 
+  ngOnDestroy(): void {
+    this.prefersDarkMq?.removeEventListener('change', this.onSystemThemeChange);
+  }
+
   /**
    * Initializes the component by retrieving preferences and setting up the dark theme.
    * @returns None
    */
   ngOnInit() {
-    // Use matchMedia to check the user preference
-    Preferences.get({key: 'darkmode'}).then(({value}) => {
-      let prefersDark;
-      /**
-       * Initializes the dark theme based on the given value or the user's preference.
-       * @param {boolean | null} value - The value indicating whether to use the dark theme. If null, the user's preference will be used.
-       */
-      if(value == null) {
-        let prefersDarkMedia = window.matchMedia('(prefers-color-scheme: dark)');
-        prefersDarkMedia.addEventListener('change', (mediaQuery) => this.initializeDarkTheme(mediaQuery.matches));
-        prefersDark = prefersDarkMedia.matches;
+    Preferences.get({ key: 'darkmode' }).then(({ value }) => {
+      const unset = value == null || value === '';
+      if (unset) {
+        this.prefersDarkMq = window.matchMedia('(prefers-color-scheme: dark)');
+        this.applyTheme(this.prefersDarkMq.matches, { followSystem: true });
+        this.prefersDarkMq.addEventListener('change', this.onSystemThemeChange);
+      } else {
+        // Stored as String(true/false); Boolean("false") is wrongly true in JavaScript.
+        const isDark = value === 'true';
+        this.applyTheme(isDark, { followSystem: false });
       }
-      else
-        prefersDark = Boolean(value);
-
-      // Initialize the dark theme based on the initial
-      // value of the prefers-color-scheme media query
-      this.initializeDarkTheme(prefersDark);
     });
 
     /**
@@ -66,13 +68,18 @@ export class TabsPage implements OnInit {
   }
 
   /**
-   * Initializes the dark theme based on the provided value.
-   * @param {any} isDark - The value indicating whether the dark theme should be enabled.
-   * @returns None
+   * Applies light/dark appearance on {@code document.body}.
+   * When the user chose light mode while the OS is dark, {@code body.light} opts out of
+   * {@code prefers-color-scheme} rules in {@code variables.scss}.
    */
-  initializeDarkTheme(isDark: any) {
+  private applyTheme(
+    isDark: boolean,
+    options: { followSystem: boolean },
+  ): void {
     this.themeToggle = isDark;
-    this.toggleDarkTheme(isDark);
+    document.body.classList.toggle('dark', isDark);
+    const forceLightUi = !isDark && !options.followSystem;
+    document.body.classList.toggle('light', forceLightUi);
   }
 
   /**
@@ -81,19 +88,11 @@ export class TabsPage implements OnInit {
    * @returns None
    */
   toggleChange(ev: any) {
-    this.toggleDarkTheme(ev.detail.checked);
-  }
-
-  /**
-   * Toggles the dark theme on or off based on the provided boolean value.
-   * @param {boolean} shouldAdd - Indicates whether the dark theme should be added (true) or removed (false).
-   * @returns None
-   */
-  async toggleDarkTheme(shouldAdd: boolean) {
-    document.body.classList.toggle('dark', shouldAdd);
-    Preferences.set({
+    const isDark = !!ev.detail?.checked;
+    this.applyTheme(isDark, { followSystem: false });
+    void Preferences.set({
       key: 'darkmode',
-      value: String(shouldAdd),
+      value: String(isDark),
     });
   }
 

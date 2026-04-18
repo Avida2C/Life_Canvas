@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/aspect-ratio')
-,require('@tailwindcss/forms')
-,require('@tailwindcss/line-clamp')
-,require('@tailwindcss/typography')
-],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    // line-clamp is built into Tailwind 3.3+; omitting avoids duplicate-plugin warnings
+    require('@tailwindcss/typography'),
+  ],
 };

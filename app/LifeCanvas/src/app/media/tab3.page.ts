@@ -16,6 +16,7 @@ import { ImageService } from '../service/image.service';
 import { IonModal } from '@ionic/angular';
 
 @Component({
+  standalone: false,
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
@@ -31,7 +32,7 @@ export class Tab3Page implements OnInit {
    * 
    * The 'imageModal' property is of type 'any' and can hold any value.
    */
-  @ViewChild(IonModal) modal: IonModal;
+  @ViewChild(IonModal) modal!: IonModal;
   public gallery: Promise<any>;
   public imageModal: any;
 

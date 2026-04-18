@@ -22,7 +22,7 @@
             <!-- Displaying a grid of images from the gallery -->
             <ion-col size="4" *ngFor="let image of gallery | async">
               <!-- Button to open the image in a modal -->
-              <ion-button fill="outline" class="ion-no-padding" (click)="setModalImage(image)" id="open-modal"
+              <ion-button fill="outline" class="ion-no-padding" (click)="setModalImage(image)"
                 expand="block">
                 <!-- Display the image -->
                 <ion-img [src]="image.imagePath"></ion-img>
@@ -43,7 +43,7 @@
 </ion-content>
 
 <!-- Modal for Image Preview -->
-<ion-modal trigger="open-modal">
+<ion-modal>
   <ng-template>
     <ion-header>
       <ion-toolbar>

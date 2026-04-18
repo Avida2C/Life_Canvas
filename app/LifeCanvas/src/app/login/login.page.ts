@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { Preferences } from '@capacitor/preferences';
 
 @Component({
+  standalone: false,
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
