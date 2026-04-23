@@ -90,6 +90,9 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.9.3"
   },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.10"
+  },
   "description": "An Ionic project",
   "config": {
     "ionic_sass": "./sass.config.js"
